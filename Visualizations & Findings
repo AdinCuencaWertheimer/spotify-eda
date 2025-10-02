@@ -1,1 +1,20 @@
+# Findings
 
+## Histogram of Popularity
+
+Most tracks cluster between 40–60 popularity, with a large spike at 0 popularity (likely tracks that never gained traction). Very few songs reach 80+ popularity, showing extreme success is rare.
+
+## Histogram (Excluding Zeros)
+Removing zero-popularity tracks makes the distribution clearer: popularity still centers around the 40–60 range, meaning the majority of “real” songs fall into average popularity.
+
+## Danceability vs Popularity
+There is a weak positive relationship: songs with higher danceability tend to be slightly more popular. However, it’s not a strong predictor on its own.
+
+## Energy vs Popularity
+Similarly, energy has a mild positive relationship with popularity. Highly energetic songs are somewhat more likely to be popular, but again, it’s not the only factor.
+
+## Correlation Heatmap
+Popularity correlates most strongly (but still moderately) with loudness, energy, and danceability. Features like acousticness and instrumentalness are negatively correlated with popularity — meaning purely acoustic or instrumental tracks usually don’t chart as high.
+
+## Average Popularity by Genre
+Some genres (like pop and rap) consistently show higher average popularity, while niche genres score lower. This suggests that genre plays a key role in driving mainstream success.
