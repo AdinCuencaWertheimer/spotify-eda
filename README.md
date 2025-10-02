@@ -1,2 +1,2 @@
-# spotify-eda
-Exploratory Data Analysis Project
+# Spotify
+Exploratory Data Analysis Project of Spotify Songs dataset
