@@ -1,6 +1,7 @@
 # Spotify EDA Project
 ## Exploratory Data Analysis Project of the Spotify Tracks dataset (6,900+ songs).
 ## This project looks at what features (danceability, energy, tempo etc.) relate to a song's popularity.
+<img width="380" height="285" alt="image" src="https://github.com/user-attachments/assets/42ce9b89-cf01-4188-a9c1-707fcd83cf97" />
 
 --
 
