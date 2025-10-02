@@ -1,1 +1,117 @@
+import pandas as pd
 
+df = pd.read_csv("dataset.csv")
+df.head()
+Unnamed: 0	track_id	artists	album_name	track_name	popularity	duration_ms	explicit	danceability	energy	...	loudness	mode	speechiness	acousticness	instrumentalness	liveness	valence	tempo	time_signature	track_genre
+0	0	5SuOikwiRyPMVoIQDJUgSV	Gen Hoshino	Comedy	Comedy	73.0	230666.0	False	0.676	0.4610	...	-6.746	0.0	0.1430	0.0322	0.000001	0.3580	0.715	87.917	4.0	acoustic
+1	1	4qPNDBW1i3p13qLCt0Ki3A	Ben Woodward	Ghost (Acoustic)	Ghost - Acoustic	55.0	149610.0	False	0.420	0.1660	...	-17.235	1.0	0.0763	0.9240	0.000006	0.1010	0.267	77.489	4.0	acoustic
+2	2	1iJBSr7s7jYXzM8EGcbK5b	Ingrid Michaelson;ZAYN	To Begin Again	To Begin Again	57.0	210826.0	False	0.438	0.3590	...	-9.734	1.0	0.0557	0.2100	0.000000	0.1170	0.120	76.332	4.0	acoustic
+3	3	6lfxq3CG4xtTiEg7opyCyx	Kina Grannis	Crazy Rich Asians (Original Motion Picture Sou...	Can't Help Falling In Love	71.0	201933.0	False	0.266	0.0596	...	-18.515	1.0	0.0363	0.9050	0.000071	0.1320	0.143	181.740	3.0	acoustic
+4	4	5vjLSffimiIP26QG5WcN2K	Chord Overstreet	Hold On	Hold On	82.0	198853.0	False	0.618	0.4430	...	-9.681	1.0	0.0526	0.4690	0.000000	0.0829	0.167	119.949	4.0	acoustic
+5 rows × 21 columns
+df.info()
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 6097 entries, 0 to 6096
+Data columns (total 21 columns):
+ #   Column            Non-Null Count  Dtype  
+---  ------            --------------  -----  
+ 0   Unnamed: 0        6097 non-null   int64  
+ 1   track_id          6097 non-null   object 
+ 2   artists           6097 non-null   object 
+ 3   album_name        6097 non-null   object 
+ 4   track_name        6097 non-null   object 
+ 5   popularity        6096 non-null   float64
+ 6   duration_ms       6096 non-null   float64
+ 7   explicit          6096 non-null   object 
+ 8   danceability      6096 non-null   float64
+ 9   energy            6096 non-null   float64
+ 10  key               6096 non-null   float64
+ 11  loudness          6096 non-null   float64
+ 12  mode              6096 non-null   float64
+ 13  speechiness       6096 non-null   float64
+ 14  acousticness      6096 non-null   float64
+ 15  instrumentalness  6096 non-null   float64
+ 16  liveness          6096 non-null   float64
+ 17  valence           6096 non-null   float64
+ 18  tempo             6096 non-null   float64
+ 19  time_signature    6096 non-null   float64
+ 20  track_genre       6096 non-null   object 
+dtypes: float64(14), int64(1), object(6)
+memory usage: 1000.4+ KB
+df.describe()
+
+	Unnamed: 0	popularity	duration_ms	danceability	energy	key	loudness	mode	speechiness	acousticness	instrumentalness	liveness	valence	tempo	time_signature
+count	6097.000000	6096.000000	6.096000e+03	6096.000000	6096.000000	6096.000000	6096.000000	6096.000000	6096.000000	6096.000000	6096.000000	6096.000000	6096.000000	6096.000000	6096.000000
+mean	3048.000000	36.305446	2.296678e+05	0.532989	0.591847	5.351542	-9.291292	0.617782	0.064338	0.353448	0.223678	0.179907	0.452787	119.991483	3.881562
+std	1760.196627	23.765035	8.304413e+04	0.169291	0.284866	3.553774	6.332752	0.485969	0.061764	0.363577	0.361776	0.152103	0.265503	30.543882	0.453677
+min	0.000000	0.000000	3.182400e+04	0.000000	0.001440	0.000000	-41.808000	0.000000	0.000000	0.000001	0.000000	0.014400	0.000000	0.000000	0.000000
+25%	1524.000000	18.000000	1.827295e+05	0.424000	0.359000	2.000000	-10.822250	0.000000	0.033775	0.019500	0.000000	0.094700	0.223000	96.469250	4.000000
+50%	3048.000000	43.000000	2.217330e+05	0.542000	0.654500	5.000000	-7.300000	1.000000	0.043000	0.196000	0.000267	0.117500	0.431000	119.627000	4.000000
+75%	4572.000000	54.000000	2.616400e+05	0.659000	0.844000	8.000000	-5.268000	1.000000	0.065400	0.724000	0.432000	0.218000	0.668000	140.065000	4.000000
+max	6096.000000	93.000000	1.478618e+06	0.974000	1.000000	11.000000	0.698000	1.000000	0.924000	0.996000	0.988000	0.992000	0.995000	220.081000	5.000000
+
+df.columns
+Index(['Unnamed: 0', 'track_id', 'artists', 'album_name', 'track_name',
+       'popularity', 'duration_ms', 'explicit', 'danceability', 'energy',
+       'key', 'loudness', 'mode', 'speechiness', 'acousticness',
+       'instrumentalness', 'liveness', 'valence', 'tempo', 'time_signature',
+       'track_genre'],
+      dtype='object')
+
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+plt.figure(figsize=(10,6))
+sns.histplot(df['popularity'], bins=30, kde=True, color="skyblue")
+plt.title("Distribution of Song Popularity on Spotify")
+plt.xlabel("Popularity")
+plt.ylabel("Count")
+plt.show()
+if "Unnamed: 0" in df.columns:
+    df = df.drop(columns=["Unnamed: 0"])
+
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+plt.figure(figsize=(10,6))
+sns.histplot(df['popularity'], bins=40, kde=True)
+plt.title("Distribution of Spotify Track Popularity")
+plt.xlabel("Popularity"); plt.ylabel("Count")
+plt.show()
+
+plt.figure(figsize=(10,6))
+sns.histplot(df.loc[df['popularity']>0, 'popularity'], bins=40, kde=True)
+plt.title("Popularity (Excluding Zero-Popularity Tracks)")
+plt.xlabel("Popularity (>0)"); plt.ylabel("Count")
+plt.show()
+
+# Danceability vs Popularity (with trend line)
+plt.figure(figsize=(9,6))
+sns.regplot(data=df, x="danceability", y="popularity", scatter_kws={"alpha":0.25}, line_kws={"linewidth":3})
+plt.title("Danceability vs Popularity")
+plt.show()
+# Energy vs Popularity (with trend line)
+plt.figure(figsize=(9,6))
+sns.regplot(data=df, x="energy", y="popularity", scatter_kws={"alpha":0.25}, line_kws={"linewidth":3})
+plt.title("Energy vs Popularity")
+plt.show()
+num_cols = ['popularity','danceability','energy','loudness','speechiness',
+'acousticness','instrumentalness','liveness','valence','tempo','duration_ms']
+
+corr = df[num_cols].corr()
+plt.figure(figsize=(10,8))
+sns.heatmap(corr, annot=False, cmap="coolwarm", center=0)
+plt.title("Feature Correlations")
+plt.show()# keep only well-represented genres
+top_genres = df['track_genre'].value_counts().head(10).index
+genre_pop = (df[df['track_genre'].isin(top_genres)]
+.groupby('track_genre')['popularity'].mean()
+.sort_values(ascending=False))
+plt.figure(figsize=(10,6))
+sns.barplot(x=genre_pop.values, y=genre_pop.index)
+plt.title("Avg Popularity by Genre (Top 10 by Count)")
+plt.xlabel("Average Popularity"); plt.ylabel("Genre")
+plt.show()
+
+for i, fig in enumerate(list(map(plt.figure, plt.get_fignums()))):
+    fig.savefig(f"chart_{i+1}.png", dpi=150, bbox_inches="tight")
