@@ -1,7 +1,6 @@
 # Findings
 
 ## Histogram of Popularity
-
 Most tracks cluster between 40–60 popularity, with a large spike at 0 popularity (likely tracks that never gained traction). Very few songs reach 80+ popularity, showing extreme success is rare.
 
 ## Histogram (Excluding Zeros)
